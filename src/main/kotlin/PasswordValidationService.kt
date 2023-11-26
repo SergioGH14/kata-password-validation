@@ -28,3 +28,9 @@ class HasDigitValidator : Validator {
         ValidationResult(input.any { it.isDigit() }, "At least one digit case is required")
 
 }
+
+class HasUnderScoresValidator : Validator {
+    override fun validate(input: String) =
+        ValidationResult(input.any { it == '_' }, "At least one digit case is required")
+
+}

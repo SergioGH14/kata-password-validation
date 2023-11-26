@@ -43,7 +43,7 @@ class PasswordValidationServiceTest {
 
     @Test
     fun `it returns false if the password doesn't contains an underscore`() {
-        val password = password(digits = 0)
+        val password = password(underscores = 0)
         val validation = passwordValidation.validate(password)
         assertFalse(validation)
     }
@@ -91,6 +91,7 @@ class PasswordValidationServiceTest {
             HasUpperCaseValidator(),
             HasLowerCaseValidator(),
             HasDigitValidator(),
+            HasUnderScoresValidator()
         )
     )
 }
