@@ -85,5 +85,12 @@ class PasswordValidationServiceTest {
         password.append("1")
     }
 
-    private val passwordValidation = PasswordValidationService()
+    private val passwordValidation = PasswordValidationService(
+        listOf(
+            LengthValidator(8),
+            HasUpperCaseValidator(),
+            HasLowerCaseValidator(),
+            HasDigitValidator(),
+        )
+    )
 }
