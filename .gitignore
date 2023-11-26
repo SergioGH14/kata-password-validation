@@ -41,7 +41,7 @@ bin/
 ### Mac OS ###
 .DS_Store
 /.idea/
-/.idea/
+!**/.idea/
 /.idea/inspectionProfiles/
 /.idea/.gitignore
 /.idea/compiler.xml
