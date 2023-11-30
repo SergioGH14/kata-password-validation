@@ -1,10 +1,4 @@
-class PasswordValidationService(private val validations: List<Validator>) {
-    fun validate(password: String): Boolean {
-        return validations.map { it.validate(password) }.none { !it.isValid }
-    }
-
-}
-
+package es.sergomz.kotlin
 class LengthValidator(private val length: Int) : Validator {
     override fun validate(input: String) =
         ValidationResult(input.length >= length, "Minimum length is $length")

@@ -1,3 +1,6 @@
+package es.sergomz.kotlin
+
+import es.sergomz.kotlin.PasswordValidationService.Companion.VALIDATION_1
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.lang.StringBuilder
@@ -14,33 +17,28 @@ class PasswordValidationServiceTest {
 
     @Test
     fun `it returns false if the password has less than 8 characters`() {
-        val password = password(7)
+        val password = password(characters = 7)
         val validation = passwordValidation.validate(password)
         assertFalse(validation)
     }
-
-
     @Test
     fun `it returns false if the password doesn't contains a capital letter`() {
         val password = password(upperCase = 0)
         val validation = passwordValidation.validate(password)
         assertFalse(validation)
     }
-
     @Test
     fun `it returns false if the password doesn't contains a lower case letter`() {
         val password = password(lowerCase = 0)
         val validation = passwordValidation.validate(password)
         assertFalse(validation)
     }
-
     @Test
     fun `it returns false if the password doesn't contains a digit`() {
         val password = password(digits = 0)
         val validation = passwordValidation.validate(password)
         assertFalse(validation)
     }
-
     @Test
     fun `it returns false if the password doesn't contains an underscore`() {
         val password = password(underscores = 0)
@@ -85,13 +83,5 @@ class PasswordValidationServiceTest {
         password.append("1")
     }
 
-    private val passwordValidation = PasswordValidationService(
-        listOf(
-            LengthValidator(8),
-            HasUpperCaseValidator(),
-            HasLowerCaseValidator(),
-            HasDigitValidator(),
-            HasUnderScoresValidator()
-        )
-    )
+    private val passwordValidation = PasswordValidationService(VALIDATION_1)
 }
